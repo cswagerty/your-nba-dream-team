@@ -4,8 +4,10 @@ define([], function() {
 
 		className: "dream-team-container",
 
+		template: DT.Templates["app/templates/dream-team.hbs"],
+
 		render: function() {
-			$('main').prepend('<h1>Hello Dream Team View with Grunt</h1>');
+			$("body").append(this.template());
 		}
 
 	});

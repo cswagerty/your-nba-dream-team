@@ -8,12 +8,12 @@
 	],
 	"dependencies": {
 		"express": "4.x",
-		"grunt": "0.4.x",
-		"grunt-contrib-requirejs": "1.x"
+		"grunt": "0.4.x"
 	},
 	"devDependencies": {
 		"express": "4.x",
 		"grunt": "0.4.x",
+		"grunt-contrib-handlebars": "1.x",
 		"grunt-contrib-requirejs": "1.x",
 		"grunt-contrib-watch": "1.x"
 	},
