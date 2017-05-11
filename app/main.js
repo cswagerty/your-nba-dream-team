@@ -1,5 +1,9 @@
-require([], function() {
+require(["views/dream-team"], function(DreamTeamView) {
 
-	var collection = new Backbone.Collection([1,2,3]);
+	var showDreamTeamView = function() {
+		var dreamTeamView = new DreamTeamView();
+		dreamTeamView.render();
+	};
 
+	showDreamTeamView();
 });

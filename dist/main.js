@@ -1,0 +1,1 @@
+define("views/dream-team",[],function(){var e=Backbone.View.extend({className:"dream-team-container",render:function(){$("main").prepend("<h1>Hello Dream Team View with Grunt</h1>")}});return e}),require(["views/dream-team"],function(e){var n=function(){var n=new e;n.render()};n()}),define("main.js",function(){});
