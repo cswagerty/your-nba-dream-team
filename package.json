@@ -16,7 +16,9 @@
 		"grunt-contrib-handlebars": "1.x",
 		"grunt-contrib-requirejs": "1.x",
 		"grunt-contrib-stylus": "1.x",
-		"grunt-contrib-watch": "1.x"
+		"grunt-contrib-watch": "1.x",
+		"grunt-contrib-jasmine": "1.0.3",
+		"grunt-template-jasmine-requirejs": "0.x"
 	},
 	"license": "MIT"
 }

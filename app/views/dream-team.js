@@ -7,9 +7,8 @@ define([], function() {
 		template: DT.Templates["app/templates/dream-team.hbs"],
 
 		render: function() {
-			$("body").append(this.template());
+			this.$el.html(this.template());
 		}
-
 	});
 
 	return DreamTeamView;

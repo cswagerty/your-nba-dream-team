@@ -17,7 +17,8 @@ module.exports = function(grunt) {
         requirejs: {
             compile: {
                 options: {
-                    baseUrl: 'app',
+                    baseUrl: "app",
+                    mainConfigFile: "app/config/require-config.js",
                     include: "main.js",
                     out: 'dist/main.js'
                 }
@@ -32,19 +33,42 @@ module.exports = function(grunt) {
             }  
         },
 
+        jasmine: {
+            src: "app/**/*.js",
+            options: {
+                template: require('grunt-template-jasmine-requirejs'),
+                keepRunner: true,
+                specs: 'tests/*.js',
+                templateOptions: {
+                    requireConfigFile: "app/config/require-config.js"
+                },
+                vendor: [
+                    "dist/vendor/underscore.js", 
+                    "dist/vendor/jquery-3.2.1.min.js",
+                    "dist/vendor/backbone.js",
+                    "dist/vendor/handlebars.runtime-v4.0.5.js"
+                ]
+            }
+        },
+
+
         watch: {
             scripts: {
                 files: "app/**/*.js",
-                tasks: "requirejs"
+                tasks: ["requirejs", "jasmine"]
             },
 
             templates: {
                 files: "app/**/*.hbs",
-                tasks: ["handlebars", "requirejs"]
+                tasks: ["handlebars", "requirejs", "jasmine"]
             },
             styles: {
                 files: "app/**/*.styl",
                 tasks: "stylus"
+            },
+            tests: {
+                files: "tests/*.spec.js",
+                tasks: "jasmine"
             }
         }
     });
@@ -52,8 +76,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-handlebars');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-stylus');
+    grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // A very basic default task.
-    grunt.registerTask('default', ["handlebars", "requirejs", "stylus", "watch"]);
+    grunt.registerTask('default', ["handlebars", "requirejs", "stylus", "jasmine", "watch"]);
 };
