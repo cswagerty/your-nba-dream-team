@@ -5,6 +5,10 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
+app.get('/tests', function (req, res) {
+  res.sendFile(__dirname + "/_SpecRunner.html");
+});
+
 app.use(express.static("."));
 
 var port = process.env.PORT || 3000;
