@@ -19,5 +19,8 @@
 		"grunt-contrib-jasmine": "1.0.3",
 		"grunt-template-jasmine-requirejs": "0.x"
 	},
+	"engines": {
+		"node": "6.10.x"
+	},
 	"license": "MIT"
 }
