@@ -1,12 +1,8 @@
 var express = require('express');
 var app = express();
 
-app.get('/', function (req, res) {
+app.get(['/', "/dream-team"], function (req, res) {
   res.sendFile(__dirname + "/index.html");
-});
-
-app.get('/tests', function (req, res) {
-  res.sendFile(__dirname + "/_SpecRunner.html");
 });
 
 app.use(express.static("."));

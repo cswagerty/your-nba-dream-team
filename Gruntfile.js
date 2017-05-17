@@ -34,7 +34,7 @@ module.exports = function(grunt) {
         },
 
         jasmine: {
-            src: ["app/templates/*.js", "app/**/*.js"],
+            src: ["app/templates/*.js", "app/**/*.js", "!app/main.js"],
             options: {
                 template: require('grunt-template-jasmine-requirejs'),
                 keepRunner: true,
