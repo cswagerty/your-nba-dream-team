@@ -2,7 +2,7 @@ this["DT"] = this["DT"] || {};
 this["DT"]["Templates"] = this["DT"]["Templates"] || {};
 
 this["DT"]["Templates"]["app/templates/dream-team.hbs"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h1>Hello precompiled Handlebars template!</h1>\n<ul class=\"dt-dream-team\">\n	<li class=\"dt-dream-team-member\"><a href=\"/teams\">PG</a></li>\n	<li class=\"dt-dream-team-member\"><a href=\"/teams\">SG</a></li>\n	<li class=\"dt-dream-team-member\"><a href=\"/teams\">SF</a></li>\n	<li class=\"dt-dream-team-member\"><a href=\"/teams\">PF</a></li>\n	<li class=\"dt-dream-team-member\"><a href=\"/teams\">C</a></li>\n</ul>";
+    return "<h1>Your NBA Dream Team</h1>\n<ul class=\"dt-dream-team\">\n	<li class=\"dt-dream-team-member\"><a href=\"/teams\">PG</a></li>\n	<li class=\"dt-dream-team-member\"><a href=\"/teams\">SG</a></li>\n	<li class=\"dt-dream-team-member\"><a href=\"/teams\">SF</a></li>\n	<li class=\"dt-dream-team-member\"><a href=\"/teams\">PF</a></li>\n	<li class=\"dt-dream-team-member\"><a href=\"/teams\">C</a></li>\n</ul>";
 },"useData":true});
 
 this["DT"]["Templates"]["app/templates/team-player.hbs"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
