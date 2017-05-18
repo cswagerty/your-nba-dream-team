@@ -2,10 +2,15 @@ var express = require('express');
 var app = express();
 
 var players = require('./api/players');
+var teams = require('./api/teams');
 
 // API routes
 var apiRouter = express.Router();
 app.use("/api", apiRouter);
+
+apiRouter.get("/teams", function(req, res) {
+	res.json(teams);
+});
 
 apiRouter.get("/players/team/:teamId", function(req, res) {
 	
