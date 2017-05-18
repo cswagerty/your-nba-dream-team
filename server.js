@@ -24,7 +24,7 @@ apiRouter.get("/players/team/:teamId", function(req, res) {
 });
 
 //Static routes
-app.get(['/', "/dream-team"], function (req, res) {
+app.get(['/', "/dream-team", "/teams", "/players/teams/:teamId"], function (req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 
