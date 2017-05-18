@@ -12,7 +12,7 @@ apiRouter.get("/teams", function(req, res) {
 	res.json(teams);
 });
 
-apiRouter.get("/players/team/:teamId", function(req, res) {
+apiRouter.get("/players/teams/:teamId", function(req, res) {
 	
 	var teamId = req.params.teamId;
 	var teamPlayers = players.filter(function(player) {

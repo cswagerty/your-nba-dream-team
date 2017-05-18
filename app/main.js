@@ -1,5 +1,6 @@
-require(["templates/compiled", "views/dream-team", "views/teams", "collections/teams"], 
-	function(templates, DreamTeamView, TeamsView, Teams) {
+require(["templates/compiled", "views/dream-team", "views/teams", 
+	"collections/teams", "views/team-players", "collections/players"], 
+	function(templates, DreamTeamView, TeamsView, Teams, TeamPlayersView, Players) {
 
 	var Router = Backbone.Router.extend({
 
@@ -21,6 +22,13 @@ require(["templates/compiled", "views/dream-team", "views/teams", "collections/t
 			var teamsView = new TeamsView({collection: teams});
 			$("main").html(teamsView.el);
 			teams.fetch();
+		},
+
+		showTeamPlayers: function(teamId) {
+			var teamPlayers = new Players({teamId: teamId});
+			var teamPlayersView = new TeamPlayersView({collection: teamPlayers});
+			$("main").html(teamPlayersView.el);
+			teamPlayers.fetch();
 		}
 	});
 
