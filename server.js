@@ -1,6 +1,24 @@
 var express = require('express');
 var app = express();
 
+var players = require('./api/players');
+
+// API routes
+var apiRouter = express.Router();
+app.use("/api", apiRouter);
+
+apiRouter.get("/players/team/:teamId", function(req, res) {
+	
+	var teamId = req.params.teamId;
+	var teamPlayers = players.filter(function(player) {
+
+		return player.teamId.toString() === teamId;
+	});
+
+	res.json(teamPlayers);
+});
+
+//Static routes
 app.get(['/', "/dream-team"], function (req, res) {
   res.sendFile(__dirname + "/index.html");
 });

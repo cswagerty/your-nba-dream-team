@@ -3,7 +3,8 @@ require(["templates/compiled", "views/dream-team"], function(templates, DreamTea
 	var Router = Backbone.Router.extend({
 
 		routes: {
-			"dream-team": "showDreamTeamView",
+			"": "showDreamTeamView",
+			"my-team": "showDreamTeamView",
 			"teams": "showTeams",
 			"team/:teamId/players": "showTeamPlayers"
 		},
@@ -22,8 +23,6 @@ require(["templates/compiled", "views/dream-team"], function(templates, DreamTea
 			// make sure dom is ready before 
 			// initializing History API
 			Backbone.history.start({pushState: true});
-			
-			router.navigate("dream-team", {trigger: true});
 		});
 	}
 
