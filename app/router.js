@@ -18,20 +18,20 @@ define(["views/dream-team", "views/teams",
 		showDreamTeamView: function() {
 			var dreamTeamView = new DreamTeamView();
 			dreamTeamView.render();
-			$("main").html(dreamTeamView.el);
+			$("section.main-content").html(dreamTeamView.el);
 		},
 
 		showTeams: function() {
 			var teams = new Teams();
 			var teamsView = new TeamsView({collection: teams});
-			$("main").html(teamsView.el);
+			$("section.main-content").html(teamsView.el);
 			teams.fetch();
 		},
 
 		showTeamPlayers: function(teamId) {
 			var teamPlayers = new Players({teamId: teamId});
 			var teamPlayersView = new TeamPlayersView({collection: teamPlayers});
-			$("main").html(teamPlayersView.el);
+			$("section.main-content").html(teamPlayersView.el);
 			teamPlayers.fetch();
 		},
 

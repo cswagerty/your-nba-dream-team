@@ -4,7 +4,7 @@ define(["views/team-player"], function(TeamPlayerView) {
 
 		className: "team-players",
 
-		tagnName: "ul",
+		tagName: "ul",
 
 		initialize: function() {
 			this.listenTo(this.collection, "sync", this.render);

@@ -2,13 +2,15 @@ this["DT"] = this["DT"] || {};
 this["DT"]["Templates"] = this["DT"]["Templates"] || {};
 
 this["DT"]["Templates"]["app/templates/dream-team.hbs"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<h1>Your NBA Dream Team</h1>\n<ul class=\"dt-dream-team\">\n	<li class=\"dt-dream-team-member\"><a href=\"/teams\">PG</a></li>\n	<li class=\"dt-dream-team-member\"><a href=\"/teams\">SG</a></li>\n	<li class=\"dt-dream-team-member\"><a href=\"/teams\">SF</a></li>\n	<li class=\"dt-dream-team-member\"><a href=\"/teams\">PF</a></li>\n	<li class=\"dt-dream-team-member\"><a href=\"/teams\">C</a></li>\n</ul>";
+    return "<ul class=\"dt-dream-team\">\n	<li class=\"dt-dream-team-member\"><span class=\"position\">PG</span><a href=\"/teams\">+</a></li>\n	<li class=\"dt-dream-team-member\"><span class=\"position\">SG</span><a href=\"/teams\">+</a></li>\n	<li class=\"dt-dream-team-member\"><span class=\"position\">SF</span><a href=\"/teams\">+</a></li>\n	<li class=\"dt-dream-team-member\"><span class=\"position\">PF</span><a href=\"/teams\">+</a></li>\n	<li class=\"dt-dream-team-member\"><span class=\"position\">C</span><a href=\"/teams\">+</a></li>\n</ul>";
 },"useData":true});
 
 this["DT"]["Templates"]["app/templates/team-player.hbs"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper;
 
-  return container.escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"name","hash":{},"data":data}) : helper)));
+  return "<li>"
+    + container.escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"name","hash":{},"data":data}) : helper)))
+    + "</li>";
 },"useData":true});
 
 this["DT"]["Templates"]["app/templates/team.hbs"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
