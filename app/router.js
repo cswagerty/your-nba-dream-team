@@ -1,6 +1,6 @@
-define(["views/dream-team", "views/teams", 
+define(["collections/dream-team-members", "views/dream-team-members", "views/teams", 
 	"collections/teams", "views/team-players", "collections/players", "events"], 
-	function(DreamTeamView, TeamsView, Teams, TeamPlayersView, Players, DTEvents) {
+	function(DreamTeamMembers, DreamTeamView, TeamsView, Teams, TeamPlayersView, Players, DTEvents) {
 
 	var DreamTeamRouter = Backbone.Router.extend({
 
@@ -16,7 +16,8 @@ define(["views/dream-team", "views/teams",
 		},
 
 		showDreamTeamView: function() {
-			var dreamTeamView = new DreamTeamView();
+			var dreamTeamMembers = new DreamTeamMembers();
+			var dreamTeamView = new DreamTeamView({collection: dreamTeamMembers});
 			dreamTeamView.render();
 			$("section.main-content").html(dreamTeamView.el);
 		},

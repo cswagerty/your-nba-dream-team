@@ -1,3 +1,24 @@
 # Your NBA Dream Team
 Your NBA Dream Team allows you build your own custom dream team using your favorite players.
 
+by Corbin Swagerty
+
+# THIS IS A WORK IN PROGRESS
+
+# Technical Highlights
+- **Object-oriented** approach and utilizes inheritance (/app/models/dream-team-member.js)
+- Uses **Backbone.js** to simplify **AJAX** interactions with REST API (/app/router.js)
+- Uses **Backbone.Router** to match paths and render views
+- **Publish/Subscribe** pattern used to prevent global variables (/app/events.js)
+- Created **REST APIs in Node.js** (Express) from poorly formatted data from stats.nba.com
+- **Handlebars** templating (/app/templates)
+- **Jasmine Unit Tests** (/tests) IN PROCESS OF WRITING COMPREHENSIVE TESTS
+- **Require.js AMD** for organization and separating concerns
+- **Stylus** for preprocessing CSS (/app/styles) ONLY BASIC STYLES BETTER STYLES COMING SOON :)
+- **Grunt** used for compiling templates, combining/minifying JS into one file, running tests, and compiling Stylus (/Gruntfile.js)
+ - Usage of native **ES5 Javascript** for performance (IE 11+ support)
+
+# Create your team (IN PROGRESS)
+http://your-nba-dream-team.herokuapp.com
+
+Currently you can only view players on a team. Ability to add them to your dream team coming soon.

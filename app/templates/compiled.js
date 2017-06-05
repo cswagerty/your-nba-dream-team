@@ -1,8 +1,12 @@
 this["DT"] = this["DT"] || {};
 this["DT"]["Templates"] = this["DT"]["Templates"] || {};
 
-this["DT"]["Templates"]["app/templates/dream-team.hbs"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<ul class=\"dt-dream-team\">\n	<li class=\"dt-dream-team-member\"><span class=\"position\">PG</span><a href=\"/teams\">+</a></li>\n	<li class=\"dt-dream-team-member\"><span class=\"position\">SG</span><a href=\"/teams\">+</a></li>\n	<li class=\"dt-dream-team-member\"><span class=\"position\">SF</span><a href=\"/teams\">+</a></li>\n	<li class=\"dt-dream-team-member\"><span class=\"position\">PF</span><a href=\"/teams\">+</a></li>\n	<li class=\"dt-dream-team-member\"><span class=\"position\">C</span><a href=\"/teams\">+</a></li>\n</ul>";
+this["DT"]["Templates"]["app/templates/dream-team-member.hbs"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return "<span class=\"position\">"
+    + container.escapeExpression(((helper = (helper = helpers.position || (depth0 != null ? depth0.position : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"position","hash":{},"data":data}) : helper)))
+    + "</span><a href=\"/teams\">+</a>";
 },"useData":true});
 
 this["DT"]["Templates"]["app/templates/team-player.hbs"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
