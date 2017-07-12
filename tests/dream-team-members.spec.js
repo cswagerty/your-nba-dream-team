@@ -20,7 +20,7 @@ define(["collections/dream-team-members"], function(DreamTeamMembers) {
 			expect(positions.toString()).toBe(["PG", "SG", "SF", "PF", "C"].toString());
 		});
 
-		it("should only create default players on fir")
+		xit("should only create default players on first render");
 	});
 
 });

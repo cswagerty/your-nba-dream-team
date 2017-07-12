@@ -1,6 +1,7 @@
 /*
-	Create a list of NBA teams without duplicates
-	from player data
+	- Read downloaded static player data because NBA API is unstable
+	- Reformat so objects are minimal and clearly labeled
+	- Create a list of NBA teams without duplicates from player data
 */
 
 var players = require('../data/players');

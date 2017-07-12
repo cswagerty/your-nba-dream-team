@@ -6,10 +6,6 @@ define(["views/dream-team-member"], function(DreamTeamMemberView) {
 
 		tagName: "ul",
 
-		events: {
-			"click .dream-team-member": "handleDreamTeamMemberClick"
-		},
-
 		render: function() {
 			this.collection.forEach(function(model) {
 				var dreamTeamMemberView = new DreamTeamMemberView({model: model});

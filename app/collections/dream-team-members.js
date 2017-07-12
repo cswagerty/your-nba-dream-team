@@ -7,18 +7,17 @@ define(["models/dream-team-member"], function(DreamTeamMember) {
 		positions: ["PG", "SG", "SF", "PF", "C"],
 
 		initialize: function() {
-			var players = this.createDreamTeamPlayers();
-			this.set(this.createDreamTeamPlayers());
+			var defaultDreamTeamMembers = this.createDefaultDreamTeamMembers(this.positions);
 		},
 
-		createDreamTeamPlayers: function() {
-			var dreamTeamPlayers = this.positions.map(function(position) {
-				return {position: position};
+		createDefaultDreamTeamMembers: function(positions) {
+			var defaultDreamTeamMembers = [];
+			positions.forEach(function(position) {
+				defaultDreamTeamMembers.push({position: position});
 			});
 
-			return dreamTeamPlayers;
+			this.add(defaultDreamTeamMembers);
 		}
-
 	});
 
 	return DreamTeamMembers;

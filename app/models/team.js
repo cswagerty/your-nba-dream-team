@@ -4,8 +4,9 @@ define([], function() {
 
 		defaults: {
 			id: undefined,
-			teamId: undefined,
-			name: undefined
+			city: undefined,
+			name: undefined,
+			abbreviation: undefined
 		}
 	});
 

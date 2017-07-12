@@ -1,10 +1,12 @@
 var express = require('express');
 var app = express();
 
-var players = require('./api/players');
-var teams = require('./api/teams');
+var players = require('./api-shim/players');
+var teams = require('./api-shim/teams');
 
-// API routes
+/*
+	API routes
+*/
 var apiRouter = express.Router();
 app.use("/api", apiRouter);
 
@@ -23,7 +25,9 @@ apiRouter.get("/players/teams/:teamId", function(req, res) {
 	res.json(teamPlayers);
 });
 
-//Static routes
+/*
+	Page routes
+*/
 app.get(['/', "/dream-team", "/teams", "/players/teams/:teamId"], function (req, res) {
   res.sendFile(__dirname + "/index.html");
 });
