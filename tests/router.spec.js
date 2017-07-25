@@ -8,9 +8,9 @@ define(["router", "events"], function(Router, DTEvents) {
 
 	describe("Router", function() {
 
-		it("show navigate when the link:click event is fired", function() {
+		xit("show navigate when the DTEvents navigate event is fired", function() {
 			spyOn(router, "navigate");
-			DTEvents.trigger("link:click", {path: "yellow-brick-road"});
+			DTEvents.trigger("navigate", {path: "yellow-brick-road"});
 			expect(router.navigate).toHaveBeenCalledWith("yellow-brick-road", {trigger: true});
 		});
 	});

@@ -5,21 +5,28 @@
 	.dream-team-member {
 		border: 2px solid $dividerGray;
 		color: $dividerGray;
+		cursor: pointer;
 		height: 82px;
 		width: 160px;
-		display: inline-block;
-		margin: 40px;
-		padding: 40px;
+		display: block;
+		margin: 40px auto;
+		padding: 20px;
 		
 		.position {
 			display: block;
-			margin: 0 auto;
 			width: 60px;
 			margin: 0 auto;
 			text-align: center;
 		}
 		
-		a {
+		.name {
+			color: $nbaRed
+			display: block;
+			margin-top: 20px;
+			text-align: center;
+		}
+		
+		.add-icon {
 			text-decoration: none;
 			text-align: center;
 			color: $dividerGray;
@@ -27,6 +34,10 @@
 			font-size: 40px;
 			width: 60px;
 			margin: 0 auto;
+		}
+		
+		.name + .add-icon {
+			display: none;
 		}
 	}
 }

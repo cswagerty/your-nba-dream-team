@@ -1,4 +1,4 @@
-define(["views/team-player"], function(TeamPlayerView) {
+define(["views/team-player", "events"], function(TeamPlayerView, DTEvents) {
 
 	var TeamPlayersView = Backbone.View.extend({
 
@@ -8,6 +8,7 @@ define(["views/team-player"], function(TeamPlayerView) {
 
 		initialize: function() {
 			this.listenTo(this.collection, "sync", this.render);
+			this.listenTo(DTEvents, "dreamTeam:updated", this.handleDreamTeamUpdated);
 		},
 
 		render: function() {
@@ -16,8 +17,11 @@ define(["views/team-player"], function(TeamPlayerView) {
 				teamPlayerView.render();
 				this.$el.append(teamPlayerView.el);
 			}, this);
-		}
+		},
 
+		handleDreamTeamUpdated: function() {
+			DTEvents.trigger("navigate", "/my-team");
+		}
 	});
 
 	return TeamPlayersView;

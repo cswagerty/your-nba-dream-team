@@ -10,7 +10,6 @@ define(["models/player"], function(Player) {
 			_(defaults).extend({position: undefined});
 			return defaults;
 		}
-
 	});
 
 	return DreamTeamMember;

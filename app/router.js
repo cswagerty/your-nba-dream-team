@@ -5,7 +5,10 @@ define(["collections/dream-team-members", "views/dream-team-members", "views/tea
 	var DreamTeamRouter = Backbone.Router.extend({
 
 		initialize: function() {
-			this.listenTo(DTEvents, "link:click", this.handleLinkClick);
+			this.listenTo(DTEvents, "all", this.logEvent); // TODO: REMOVE. THIS IS FOR DEBUGGING PURPOSES
+			this.listenTo(DTEvents, "navigate", this.handleNavigateEvent);
+			this.listenTo(DTEvents, "position:set", this.setPosition);	
+			this.listenTo(DTEvents, "position:get", this.sendPosition);		
 		},
 
 		routes: {
@@ -16,8 +19,10 @@ define(["collections/dream-team-members", "views/dream-team-members", "views/tea
 		},
 
 		showDreamTeamView: function() {
-			var dreamTeamMembers = new DreamTeamMembers();
-			var dreamTeamView = new DreamTeamView({collection: dreamTeamMembers});
+			if (!this.dreamTeamMembers) {
+				this.dreamTeamMembers = new DreamTeamMembers();
+			}
+			var dreamTeamView = new DreamTeamView({collection: this.dreamTeamMembers});
 			dreamTeamView.render();
 			$("section.main-content").html(dreamTeamView.el);
 		},
@@ -36,9 +41,26 @@ define(["collections/dream-team-members", "views/dream-team-members", "views/tea
 			teamPlayers.fetch();
 		},
 
-		handleLinkClick: function(opts) {
-			opts = opts || {};
-			this.navigate(opts.path, {trigger: true});
+		handleNavigateEvent: function(path) {
+			path = path || "/";
+			this.navigate(path, {trigger: true});
+		},
+
+		setPosition: function(position) {
+			this.position = position; 
+		},
+
+		sendPosition: function() {
+			// HACK: For some reason position:return fires before
+			// position: get even though one calls the other
+			var self = this;
+			setTimeout(function() { 
+				DTEvents.trigger("position:return", self.position);
+			}, 10);
+		},
+
+		logEvent: function() {
+			console.log(arguments);
 		}
 	});
 
