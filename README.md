@@ -18,7 +18,5 @@ by Corbin Swagerty
 - **Grunt** used for compiling templates, combining/minifying JS into one file, running tests, and compiling Stylus (/Gruntfile.js)
  - Usage of native **ES5 Javascript** for performance (IE 11+ support)
 
-# Create your team (IN PROGRESS)
+# Create Your Dream Team
 http://your-nba-dream-team.herokuapp.com
-
-Currently you can only view players on a team. Ability to add them to your dream team coming soon.
