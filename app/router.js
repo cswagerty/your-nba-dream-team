@@ -5,40 +5,50 @@ define(["collections/dream-team-members", "views/dream-team-members", "views/tea
 	var DreamTeamRouter = Backbone.Router.extend({
 
 		initialize: function() {
-			this.listenTo(DTEvents, "all", this.logEvent); // TODO: REMOVE. THIS IS FOR DEBUGGING PURPOSES
 			this.listenTo(DTEvents, "navigate", this.handleNavigateEvent);
 			this.listenTo(DTEvents, "position:set", this.setPosition);	
 			this.listenTo(DTEvents, "position:get", this.sendPosition);		
 		},
 
 		routes: {
-			"": "showDreamTeamView",
-			"my-team": "showDreamTeamView",
+			"": "showDreamTeamMembers",
+			"dream-team-members": "showDreamTeamMembers",
 			"teams": "showTeams",
 			"players/teams/:teamId": "showTeamPlayers"
 		},
 
-		showDreamTeamView: function() {
+		mainElSelector: "section.main-content",
+
+		getMainEl: function() {
+			return $(this.mainElSelector).get(0);
+		},
+
+		showDreamTeamMembers: function() {
 			if (!this.dreamTeamMembers) {
 				this.dreamTeamMembers = new DreamTeamMembers();
 			}
 			var dreamTeamView = new DreamTeamView({collection: this.dreamTeamMembers});
 			dreamTeamView.render();
-			$("section.main-content").html(dreamTeamView.el);
+			this.showView(dreamTeamView.el);
 		},
 
 		showTeams: function() {
 			var teams = new Teams();
 			var teamsView = new TeamsView({collection: teams});
-			$("section.main-content").html(teamsView.el);
+			this.showView(teamsView.el);
 			teams.fetch();
 		},
 
 		showTeamPlayers: function(teamId) {
 			var teamPlayers = new Players({teamId: teamId});
 			var teamPlayersView = new TeamPlayersView({collection: teamPlayers});
-			$("section.main-content").html(teamPlayersView.el);
+			this.showView(teamPlayersView.el);
 			teamPlayers.fetch();
+		},
+
+		// adds a given view.el to dom
+		showView: function(el) {
+			$(this.getMainEl()).html(el);
 		},
 
 		handleNavigateEvent: function(path) {
@@ -57,10 +67,6 @@ define(["collections/dream-team-members", "views/dream-team-members", "views/tea
 			setTimeout(function() { 
 				DTEvents.trigger("position:return", self.position);
 			}, 10);
-		},
-
-		logEvent: function() {
-			console.log(arguments);
 		}
 	});
 

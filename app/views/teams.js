@@ -1,8 +1,8 @@
-define(["views/team"], function(TeamView) {
+define(["views/team", "events"], function(TeamView, DTEvents) {
 	
 	var TeamsView = Backbone.View.extend({
 
-		className: "teams-view",
+		className: "teams",
 
 		tagName: "ul",
 
@@ -15,7 +15,7 @@ define(["views/team"], function(TeamView) {
 				var teamView = new TeamView({model: model});
 				teamView.render();
 				this.$el.append(teamView.el);
-			}, this);	
+			}, this);
 		}
 	});
 

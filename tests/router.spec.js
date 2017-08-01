@@ -1,17 +1,88 @@
 define(["router", "events"], function(Router, DTEvents) {
 	
 	var router;
+	var mainEl;
+	var $mainEl;
+	var listener;
 
 	beforeEach(function() {
 		router = new Router();
+
+		$mainEl = $('<section class="main-test"></section>');
+		mainEl = $mainEl.get(0);
+		
+		router.getMainEl = function() {
+			return mainEl;
+		};
+
+		listener = _.extend({}, Backbone.Events);
 	});
 
 	describe("Router", function() {
 
-		xit("show navigate when the DTEvents navigate event is fired", function() {
-			spyOn(router, "navigate");
-			DTEvents.trigger("navigate", {path: "yellow-brick-road"});
-			expect(router.navigate).toHaveBeenCalledWith("yellow-brick-road", {trigger: true});
+		it("should show a view", function() {
+
+			var viewEl = $('<div class="some-view"></div>').get(0);
+			router.showView(viewEl);
+
+			expect($mainEl.children(".some-view").length).toEqual(1);
+		});
+
+		it("should navigate to path when navigate event is fired", function() {
+
+			listener.listenTo(router, "navigate");
+			var navigateFunction = spyOn(router, "navigate");
+
+			DTEvents.trigger("navigate", "/some-path");
+
+			expect(navigateFunction).toHaveBeenCalled();
+		});
+
+		it("should show the dream team members view", function() {
+			router.showDreamTeamMembers();
+
+			expect($(router.getMainEl()).children(".dream-team-members").length).toEqual(1);
+		});
+
+		it("should only create default dream team members if none exist", function() {
+			router.showDreamTeamMembers();
+
+			expect($mainEl.find(".dream-team-member").length).toEqual(5);
+
+			// if a user has added a member to their dream team
+			router.dreamTeamMembers = new Backbone.Collection([{name: "Charles Barkley"}]);
+
+			router.showDreamTeamMembers();
+			expect($mainEl.find(".dream-team-member").length).toEqual(1);
+		});
+
+		it("should show the teams view", function() {
+			router.showTeams();
+			expect($mainEl.children(".teams").length).toEqual(1);
+		});
+
+		it("should show the team players view", function() {
+			router.showTeamPlayers();
+			expect($mainEl.children(".team-players").length).toEqual(1);
+		});
+
+		it("should set the position when the position:set event is fired", function() {
+			DTEvents.trigger("position:set", "some position");
+			expect(router.position).toEqual("some position");
+		});
+
+		it("should return the in progress position when position:get is called", function(done) {
+			DTEvents.trigger("position:set", "an awesome position");
+			var returnedPosition;
+			
+			listener.listenTo(DTEvents, "position:return", function(position) {
+				returnedPosition = position;
+				expect(returnedPosition).toEqual("an awesome position");
+				done();
+			});
+
+			DTEvents.trigger("position:get");
+
 		});
 	});
 

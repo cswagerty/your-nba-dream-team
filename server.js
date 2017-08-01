@@ -28,7 +28,7 @@ apiRouter.get("/players/teams/:teamId", function(req, res) {
 /*
 	Page routes
 */
-app.get(['/', "/dream-team", "/teams", "/players/teams/:teamId"], function (req, res) {
+app.get(['/', "/dream-team", "/teams", "/players/teams/:teamId", "/dream-team-members"], function (req, res) {
   res.sendFile(__dirname + "/index.html");
 });
 

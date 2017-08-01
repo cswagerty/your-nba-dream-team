@@ -2,7 +2,7 @@ define(["events"], function(DTEvents) {
 
 	var TeamView = Backbone.View.extend({
 
-		className: "team-view",
+		className: "team",
 
 		tagName: "li",
 
