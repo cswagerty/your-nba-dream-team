@@ -23,7 +23,7 @@ define(["events"], function(DTEvents) {
 
 		handlePositionReturn: function(position) {
 			var newDreamTeamMember = _(this.model.toJSON()).extend({position: position});
-			DTEvents.trigger("dreamTeam:update", newDreamTeamMember);	
+			DTEvents.trigger("dreamTeamMembers:update", newDreamTeamMember);	
 		}
 	});
 

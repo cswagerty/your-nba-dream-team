@@ -25,7 +25,7 @@ define(["router", "events"], function(Router, DTEvents) {
 			var viewEl = $('<div class="some-view"></div>').get(0);
 			router.showView(viewEl);
 
-			expect($mainEl.children(".some-view").length).toEqual(1);
+			expect($mainEl.children(".some-view").length).toBe(1);
 		});
 
 		it("should navigate to path when navigate event is fired", function() {
@@ -41,34 +41,34 @@ define(["router", "events"], function(Router, DTEvents) {
 		it("should show the dream team members view", function() {
 			router.showDreamTeamMembers();
 
-			expect($(router.getMainEl()).children(".dream-team-members").length).toEqual(1);
+			expect($(router.getMainEl()).children(".dream-team-members").length).toBe(1);
 		});
 
 		it("should only create default dream team members if none exist", function() {
 			router.showDreamTeamMembers();
 
-			expect($mainEl.find(".dream-team-member").length).toEqual(5);
+			expect($mainEl.find(".dream-team-member").length).toBe(5);
 
 			// if a user has added a member to their dream team
 			router.dreamTeamMembers = new Backbone.Collection([{name: "Charles Barkley"}]);
 
 			router.showDreamTeamMembers();
-			expect($mainEl.find(".dream-team-member").length).toEqual(1);
+			expect($mainEl.find(".dream-team-member").length).toBe(1);
 		});
 
 		it("should show the teams view", function() {
 			router.showTeams();
-			expect($mainEl.children(".teams").length).toEqual(1);
+			expect($mainEl.children(".teams").length).toBe(1);
 		});
 
 		it("should show the team players view", function() {
 			router.showTeamPlayers();
-			expect($mainEl.children(".team-players").length).toEqual(1);
+			expect($mainEl.children(".team-players").length).toBe(1);
 		});
 
 		it("should set the position when the position:set event is fired", function() {
 			DTEvents.trigger("position:set", "some position");
-			expect(router.position).toEqual("some position");
+			expect(router.position).toBe("some position");
 		});
 
 		it("should return the in progress position when position:get is called", function(done) {
@@ -77,13 +77,16 @@ define(["router", "events"], function(Router, DTEvents) {
 			
 			listener.listenTo(DTEvents, "position:return", function(position) {
 				returnedPosition = position;
-				expect(returnedPosition).toEqual("an awesome position");
+				expect(returnedPosition).toBe("an awesome position");
 				done();
 			});
 
 			DTEvents.trigger("position:get");
-
 		});
+	});
+
+	afterEach(function() {
+		listener.stopListening();
 	});
 
 });

@@ -7,29 +7,40 @@ define(["models/dream-team-member", "events"], function(DreamTeamMember, DTEvent
 		positions: ["PG", "SG", "SF", "PF", "C"],
 
 		initialize: function() {
-			this.listenTo(DTEvents, "dreamTeam:add", this.handleDreamTeamAddEvent);
-			this.listenTo(DTEvents, "dreamTeam:update", this.handleDreamTeamUpdateEvent);
-			var defaultDreamTeamMembers = this.createDefaultDreamTeamMembers(this.positions);
+			this.listenTo(DTEvents, "dreamTeamMembers:add", this.handleDreamTeamMembersAddEvent);
+			this.listenTo(DTEvents, "dreamTeamMembers:update", this.handleDreamTeamMembersUpdateEvent);
+			this.createPlaceholderDreamTeamMembers(this.positions);
 		},
 
-		createDefaultDreamTeamMembers: function(positions) {
+		// handle the blank state where the user hasn't 
+		// picked any members for their dream team
+		createPlaceholderDreamTeamMembers: function(positions) {
 			if (!this.length) {	
-				var defaultDreamTeamMembers = [];
-				positions.forEach(function(position) {
-					defaultDreamTeamMembers.push({position: position});
+				var placeholderDreamTeamMembers = [];
+				
+				placeholderDreamTeamMembers = positions.map(function(position) {
+					return {position: position};
 				});
 
-				DTEvents.trigger("dreamTeam:add", defaultDreamTeamMembers);				
+				this.addDreamTeamMembers(placeholderDreamTeamMembers);		
 			}
 		},
 
-		handleDreamTeamAddEvent: function(newDreamTeamMembers) {
+		/* expects a DreamTeamMember object or array */
+		addDreamTeamMembers: function(dreamTeamMembers) {
+			// using the dreamTeamMembers:add event instead of adding 
+			// directly to create a common interface for adding
+			// dream team members
+			DTEvents.trigger("dreamTeamMembers:add", dreamTeamMembers);	
+		},
+
+		handleDreamTeamMembersAddEvent: function(newDreamTeamMembers) {
 			this.add(newDreamTeamMembers);
 		},
 
-		handleDreamTeamUpdateEvent: function(player) {
+		handleDreamTeamMembersUpdateEvent: function(player) {
 			this.findWhere({position: player.position}).set(player);
-			DTEvents.trigger("dreamTeam:updated");
+			DTEvents.trigger("dreamTeamMembers:updated");
 		}
 	});
 

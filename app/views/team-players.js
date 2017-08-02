@@ -8,7 +8,7 @@ define(["views/team-player", "events"], function(TeamPlayerView, DTEvents) {
 
 		initialize: function() {
 			this.listenTo(this.collection, "sync", this.render);
-			this.listenTo(DTEvents, "dreamTeam:updated", this.handleDreamTeamUpdated);
+			this.listenTo(DTEvents, "dreamTeamMembers:updated", this.handleDreamTeamUpdated);
 		},
 
 		render: function() {
