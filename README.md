@@ -20,3 +20,6 @@ by Corbin Swagerty
 
 # Create Your Dream Team
 http://your-nba-dream-team.herokuapp.com
+
+# View the Unit Tests
+https://your-nba-dream-team.herokuapp.com/_SpecRunner.html
