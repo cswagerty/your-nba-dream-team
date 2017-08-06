@@ -20,6 +20,10 @@ define(["views/team-player", "events"], function(TeamPlayerView, DTEvents) {
 		},
 
 		handleDreamTeamUpdated: function() {
+			this.showDreamTeamMembers();
+		},
+
+		showDreamTeamMembers: function() {
 			DTEvents.trigger("navigate", "/dream-team-members");
 		}
 	});

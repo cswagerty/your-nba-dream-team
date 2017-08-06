@@ -17,7 +17,15 @@ define(["events"], function(DTEvents) {
 		},
 
 		handleTeamClick: function() {
-			var path = "/players/teams/" + this.model.get("id");
+			var path = this.getTeamPlayersPath();
+			this.navigateToTeamPlayersList(path);
+		},
+
+		getTeamPlayersPath: function() {
+			return "/players/teams/" + this.model.get("id");
+		},
+
+		navigateToTeamPlayersList: function(path) {
 			DTEvents.trigger("navigate", path);
 		}
 	});

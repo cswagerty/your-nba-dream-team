@@ -18,13 +18,17 @@ define(["events"], function(DTEvents) {
 
 		handleClick: function() {
 			this.listenToOnce(DTEvents, "position:return", this.handlePositionReturn);
-			DTEvents.trigger("position:get");
+			this.getActivePosition();
 		},
 
+		getActivePosition: function() {
+			DTEvents.trigger("position:get");
+		},
+		
 		handlePositionReturn: function(position) {
 			var newDreamTeamMember = _(this.model.toJSON()).extend({position: position});
 			DTEvents.trigger("dreamTeamMembers:update", newDreamTeamMember);	
-		}
+		},
 	});
 
 	return TeamPlayerView

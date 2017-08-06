@@ -9,15 +9,23 @@ define(["events"], function(DTEvents) {
 		template: DT.Templates["app/templates/dream-team-member.hbs"],
 
 		events: {
-			"click": "setCurrentPosition"
+			"click": "handleClick"
 		},
 
 		render: function() {
 			this.$el.html(this.template(this.model.toJSON()));
 		},
 
-		setCurrentPosition: function() {
+		handleClick: function() {
+			this.setPosition();
+			this.navigateToTeamsList();
+		},
+
+		setPosition: function() {
 			DTEvents.trigger("position:set", this.model.get("position"));
+		},
+
+		navigateToTeamsList: function() {
 			DTEvents.trigger("navigate", "/teams");
 		}
 	});
