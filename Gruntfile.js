@@ -67,7 +67,7 @@ module.exports = function(grunt) {
                 tasks: "stylus"
             },
             tests: {
-                files: "tests/*.spec.js",
+                files: "tests/**/*.spec.js",
                 tasks: "jasmine"
             }
         }

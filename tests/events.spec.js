@@ -1,6 +1,6 @@
 define(["events"], function(DTEvents) {
 
-	describe("DTEvents", function() {
+	describe("DTEvents Event Bus", function() {
 
 		it("should fire custom events", function() {
 			var listener = Object.create(Backbone.Events);

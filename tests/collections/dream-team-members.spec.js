@@ -1,5 +1,5 @@
 define(["collections/dream-team-members", "events", "models/dream-team-member"], 
-		function(DreamTeamMembers, DTEvents, DreamTeamMember) {
+		function(DreamTeamMembers, DTEvents) {
 
 	describe("Dream Team Members Collection", function() {
 
