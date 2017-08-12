@@ -59,9 +59,10 @@ define(["collections/dream-team-members", "events", "models/dream-team-member"],
 
 		it("should trigger dreamTeamMembers:updated event when a dream team member is updated", function() {
 			var triggerEvent = spyOn(DTEvents, "trigger");
+			var mockPlayer = {position: "PG"};
 
-			dreamTeamMembers.handleDreamTeamMembersUpdateEvent({position: "PG"});
-			expect(triggerEvent).toHaveBeenCalledWith("dreamTeamMembers:updated");
+			dreamTeamMembers.handleDreamTeamMembersUpdateEvent(mockPlayer);
+			expect(triggerEvent).toHaveBeenCalledWith("dreamTeamMembers:updated", mockPlayer);
 		});
 
 		afterEach(function() {

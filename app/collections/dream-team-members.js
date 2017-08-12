@@ -40,7 +40,7 @@ define(["models/dream-team-member", "events"], function(DreamTeamMember, DTEvent
 
 		handleDreamTeamMembersUpdateEvent: function(player) {
 			this.findWhere({position: player.position}).set(player);
-			DTEvents.trigger("dreamTeamMembers:updated");
+			DTEvents.trigger("dreamTeamMembers:updated", player);
 		}
 	});
 

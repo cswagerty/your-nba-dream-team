@@ -18,10 +18,10 @@ define(["events"], function(DTEvents) {
 
 		handleClick: function() {
 			this.listenToOnce(DTEvents, "position:return", this.handlePositionReturn);
-			this.getActivePosition();
+			this.requestActivePosition();
 		},
 
-		getActivePosition: function() {
+		requestActivePosition: function() {
 			DTEvents.trigger("position:get");
 		},
 		
@@ -31,6 +31,6 @@ define(["events"], function(DTEvents) {
 		},
 	});
 
-	return TeamPlayerView
+	return TeamPlayerView;
 
 });
