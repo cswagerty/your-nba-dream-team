@@ -12,7 +12,7 @@ define(["views/dream-team-members-view", "events"], function(DreamTeamMembersVie
 
 	describe("Dream Team Members View", function() {
 
-		it("should create child views for each Dream Team Member", function() {
+		it("should create child views for each DreamTeamMember", function() {
 			dreamTeamMembersView.render();
 			expect(dreamTeamMembersView.$el.children().length).toBe(2);
 		});

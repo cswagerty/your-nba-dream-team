@@ -25,7 +25,7 @@ define(["views/dream-team-member-view", "events"], function(DreamTeamMemberView,
 			dreamTeamMemberView.$el.click();
 		});
 
-		it("should navigate to the teams page when a Dream Team Member is clicked", function(done) {
+		it("should navigate to the teams list when a Dream Team Member is clicked", function(done) {
 			listener.listenTo(DTEvents, "navigate", function(path) {
 				expect(path).toBe("/teams");
 				done();

@@ -28,7 +28,7 @@ define(["router", "events"], function(Router, DTEvents) {
 			expect($mainEl.children(".some-view").length).toBe(1);
 		});
 
-		it("should navigate to path when navigate event is fired", function() {
+		it("should navigate to path when navigate event is fired on the event bus", function() {
 
 			listener.listenTo(router, "navigate");
 			var navigateFunction = spyOn(router, "navigate");
@@ -38,7 +38,7 @@ define(["router", "events"], function(Router, DTEvents) {
 			expect(navigateFunction).toHaveBeenCalled();
 		});
 
-		it("should show the dream team members view", function() {
+		it("should show the DreamTeamMembersView", function() {
 			router.showDreamTeamMembers();
 
 			expect($(router.getMainEl()).children(".dream-team-members").length).toBe(1);
@@ -56,12 +56,12 @@ define(["router", "events"], function(Router, DTEvents) {
 			expect($mainEl.find(".dream-team-member").length).toBe(1);
 		});
 
-		it("should show the teams view", function() {
+		it("should show the TeamsView", function() {
 			router.showTeams();
 			expect($mainEl.children(".teams").length).toBe(1);
 		});
 
-		it("should show the team players view", function() {
+		it("should show the TeamsPlayersView", function() {
 			router.showTeamPlayers();
 			expect($mainEl.children(".team-players").length).toBe(1);
 		});

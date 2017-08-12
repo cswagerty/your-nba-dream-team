@@ -7,12 +7,12 @@ by Corbin Swagerty
 
 # Technical Highlights
 - **Object-oriented** approach and utilizes inheritance (/app/models/dream-team-member.js)
-- Uses **Backbone.js** to simplify **AJAX** interactions with REST API (/app/router.js)
+- Uses **Backbone.js** to simplify **AJAX** interactions with **Node.js** REST API (/app/router.js)
 - Uses **Backbone.Router** to match paths and render views
 - **Publish/Subscribe** pattern used to prevent global variables (/app/events.js)
-- Created **REST APIs in Node.js** (Express) from poorly formatted data from stats.nba.com
+- Created **RESTful APIs in Node.js** (Express) from poorly formatted data from stats.nba.com
 - **Handlebars** templating (/app/templates)
-- **Jasmine Unit Tests** (/tests) IN PROCESS OF WRITING COMPREHENSIVE TESTS
+- **Comprehensive Unit Tests for Models, Views, Collections, Router, and Event Bus using Jasmine** (/tests)
 - **Require.js AMD** for organization and separating concerns
 - **Stylus** for preprocessing CSS (/app/styles) ONLY BASIC STYLES BETTER STYLES COMING SOON :)
 - **Grunt** used for compiling templates, combining/minifying JS into one file, running tests, and compiling Stylus (/Gruntfile.js)
