@@ -1,4 +1,4 @@
-define(["views/dream-team-member"], function(DreamTeamMemberView) {
+define(["views/dream-team-member-view"], function(DreamTeamMemberView) {
 
 	var DreamTeamView = Backbone.View.extend({
 

@@ -1,5 +1,5 @@
-define(["collections/dream-team-members", "views/dream-team-members", "views/teams", 
-	"collections/teams", "views/team-players", "collections/players", "events"], 
+define(["collections/dream-team-members", "views/dream-team-members-view", "views/teams-view", 
+	"collections/teams", "views/team-players-view", "collections/players", "events"], 
 	function(DreamTeamMembers, DreamTeamView, TeamsView, Teams, TeamPlayersView, Players, DTEvents) {
 
 	var DreamTeamRouter = Backbone.Router.extend({

@@ -1,4 +1,4 @@
-define(["views/team", "events"], function(TeamView, DTEvents) {
+define(["views/team-view"], function(TeamView) {
 	
 	var TeamsView = Backbone.View.extend({
 
