@@ -3,8 +3,8 @@
 	"description": "Build your own dream team with your favorite NBA players.",
 	"version": "0.0.1",
 	"author": "Corbin Swagerty",
-	"contributors": [ 
-			"Corbin Swagerty <corbin.swagerty@gmail.com> (https://github.com/cswagerty)" 
+	"contributors": [
+		"Corbin Swagerty <corbin.swagerty@gmail.com> (https://github.com/cswagerty)"
 	],
 	"dependencies": {
 		"express": "4.x"

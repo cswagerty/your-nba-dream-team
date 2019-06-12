@@ -1,8 +1,15 @@
 .teams {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 768px;
+    margin: 0 auto;
 	
 	.team {
 		padding: 20px;
 		border: 1px solid $dividerGray;
+	    flex-grow: 1;
+	    flex-basis: 30%;
+		min-width: 275px;
 	}
 	
 	a {
