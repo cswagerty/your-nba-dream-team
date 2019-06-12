@@ -1,25 +1,19 @@
 # Your NBA Dream Team
-Your NBA Dream Team allows you build your own custom dream team using your favorite players.
 
-by Corbin Swagerty
+<img src="./dream-team-demo.gif" width="200px" />
 
-# THIS IS A WORK IN PROGRESS
+## Overview
+An example app for creating a team with your favorite NBA players. This SPA has a mobile-first, fluid layout, and uses the History API (via Backbone.Router) to enable app navigation with the back button.
 
-# Technical Highlights
-- **Object-oriented** approach and utilizes inheritance (/app/models/dream-team-member.js)
-- Uses **Backbone.js** to simplify **AJAX** interactions with **Node.js** REST API (/app/router.js)
-- Uses **Backbone.Router** to match paths and render views
-- **Publish/Subscribe** pattern used to prevent global variables (/app/events.js)
-- Created **RESTful APIs in Node.js** (Express) from poorly formatted data from stats.nba.com
-- **Handlebars** templating (/app/templates)
-- **Comprehensive Unit Tests for Models, Views, Collections, Router, and Event Bus using Jasmine** (/tests)
-- **Require.js AMD** for organization and separating concerns
-- **Stylus** for preprocessing CSS (/app/styles) ONLY BASIC STYLES BETTER STYLES COMING SOON :)
-- **Grunt** used for compiling templates, combining/minifying JS into one file, running tests, and compiling Stylus (/Gruntfile.js)
- - Usage of native **ES5 Javascript** for performance (IE 11+ support)
-
-# Create Your Dream Team
+## Check it out
 http://your-nba-dream-team.herokuapp.com
 
-# View the Unit Tests
-https://your-nba-dream-team.herokuapp.com/_SpecRunner.html
+Unit tests: https://your-nba-dream-team.herokuapp.com/_SpecRunner.html
+
+## Technical Highlights
+- **Publish/Subscribe** pattern used to prevent global variables (`/app/events.js`)
+- Created **RESTful APIs in Node.js** from reformatted data from stats.nba.com
+- **Mobile-first**, fluid layout created with the Stylus CSS preprocessor
+- Uses **Backbone.js** to modularize code into Models, Views, and Collections
+- **Comprehensive Unit Tests** using Jasmine 
+- **Grunt** used for compiling templates, combining/minifying JS into one file, running tests, and compiling Stylus
